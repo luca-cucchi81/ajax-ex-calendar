@@ -10,9 +10,9 @@ $('.prec').click(function(){
     getGiorni(dataAttuale);
     getFeste(dataAttuale);
     if (dataAttuale.format('YYYY') == 2017){    /* check validazione anno precedente al 2018 */
-        $('html').empty();
-        alert('ATTENZIONE NON SEI PIU\' NEL 2018');
-        location.reload();
+        $('html').empty(); /* svuoto la pagina */
+        alert('ATTENZIONE NON SEI PIU\' NEL 2018'); /* avvio l'allert */
+        location.reload(); /* ricarico la pagina iniziale (Gennaio 2018) */
     }
 });
 
@@ -23,9 +23,9 @@ $('.succ').click(function(){
     getGiorni(dataAttuale);
     getFeste(dataAttuale);
     if (dataAttuale.format('YYYY') == 2019){  /* check validazione anno successivo al 2018 */
-        $('html').empty();
-        alert('ATTENZIONE NON SEI PIU\' NEL 2018');
-        location.reload();
+        $('html').empty(); /* svuoto la pagina */
+        alert('ATTENZIONE NON SEI PIU\' NEL 2018'); /* avvio l'allert */
+        location.reload(); /* ricarico la pagina iniziale (Gennaio 2018) */
     }
 });
 
