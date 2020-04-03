@@ -8,6 +8,7 @@ getFeste()
 $('.prec').click(function(){
     dataAttuale.subtract(1, 'month');
     getGiorni(dataAttuale);
+    getFeste()
 });
 
 
@@ -15,6 +16,7 @@ $('.prec').click(function(){
 $('.succ').click(function(){
     dataAttuale.add(1, 'month');
     getGiorni(dataAttuale);
+    getFeste()
 });
 
 
