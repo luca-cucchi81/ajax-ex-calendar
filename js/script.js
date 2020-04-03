@@ -2,13 +2,13 @@ $(document).ready(function(){
 
 var dataAttuale = moment('2018-01-01');
 getGiorni(dataAttuale);
-getFeste()
+getFeste(dataAttuale);
 
 // al click su precedente --> passa a mese precedente
 $('.prec').click(function(){
     dataAttuale.subtract(1, 'month');
     getGiorni(dataAttuale);
-    getFeste()
+    getFeste(dataAttuale);
 });
 
 
@@ -16,7 +16,7 @@ $('.prec').click(function(){
 $('.succ').click(function(){
     dataAttuale.add(1, 'month');
     getGiorni(dataAttuale);
-    getFeste()
+    getFeste(dataAttuale);
 });
 
 
@@ -44,13 +44,13 @@ function getGiorni(target){
     }
 }
 
-function getFeste() {
+function getFeste(festa) {
     $.ajax({
         url: 'https://flynn.boolean.careers/exercises/api/holidays',
         method: 'GET',
         data:{
             year: 2018,
-            month: 0
+            month: festa.month()
         },
         success: function (data) {
             var giorniFestivi = data.response;

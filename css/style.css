@@ -53,8 +53,7 @@
  }
 
  .calendar-main{
-    width: 20%;
-    height: 80vh;
+    width: 30%;
     margin: 10px auto; 
     padding: 0 30px;
     overflow: auto;
