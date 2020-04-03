@@ -9,6 +9,11 @@ $('.prec').click(function(){
     dataAttuale.subtract(1, 'month');
     getGiorni(dataAttuale);
     getFeste(dataAttuale);
+    if (dataAttuale.format('YYYY') == 2017){
+        $('html').empty();
+        alert('ATTENZIONE NON SEI PIU\' NEL 2018');
+        location.reload();
+    }
 });
 
 
@@ -17,6 +22,11 @@ $('.succ').click(function(){
     dataAttuale.add(1, 'month');
     getGiorni(dataAttuale);
     getFeste(dataAttuale);
+    if (dataAttuale.format('YYYY') == 2019){
+        $('html').empty();
+        alert('ATTENZIONE NON SEI PIU\' NEL 2018');
+        location.reload();
+    }
 });
 
 
@@ -49,7 +59,7 @@ function getFeste(festa) {
         url: 'https://flynn.boolean.careers/exercises/api/holidays',
         method: 'GET',
         data:{
-            year: 2018,
+            year: festa.year(),
             month: festa.month()
         },
         success: function (data) {
