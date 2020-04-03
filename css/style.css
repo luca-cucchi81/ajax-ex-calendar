@@ -54,6 +54,7 @@
 
  .calendar-main{
     width: 30%;
+    max-height: 800px;
     margin: 10px auto; 
     padding: 0 30px;
     overflow: auto;
@@ -68,6 +69,13 @@
     font-size: 1.5em;
 }
 
+.festa{
+    display: flex;
+    align-items: center;
+    background-color: red;
+    border-radius: 5px;;
+}
 .festivo{
-    color: red;
+    padding: 5px 10px;
+    color: #fff;
 }

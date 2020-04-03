@@ -34,7 +34,7 @@ function getGiorni(target){
         var templateGiorno = Handlebars.compile(htmlGiorno);
 
         var giornoInserito = {
-            day: i + ' - ' + nomeMese,
+            day: i + '  ' + nomeMese,
             dataDay: meseTarget.format('YYYY-MM-DD')
         };
 
@@ -59,8 +59,10 @@ function getFeste(festa) {
                 var nomeFestivo = giornoFestivo.name;
                 var dataFestivo = giornoFestivo.date;
                 $('#calendar li[data-day="' + dataFestivo + '"]').addClass('festivo').append(' - ' + nomeFestivo);
+                $('.feste-container li[data-day="' + dataFestivo + '"]').addClass('festa');
             }
-        }
+        },
+        
     });
 }
 
