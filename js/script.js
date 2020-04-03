@@ -3,14 +3,14 @@ $(document).ready(function(){
 var dataAttuale = moment('2018-01-01');
 getGiorni(dataAttuale);
 
-// al click su precedente --> attiva mese precedente
+// al click su precedente --> passa a mese precedente
 $('.prec').click(function(){
     dataAttuale.subtract(1, 'month');
     getGiorni(dataAttuale);
 });
 
 
-// al click su successivo --> attiva mese successivo
+// al click su successivo --> passa a mese successivo
 $('.succ').click(function(){
     dataAttuale.add(1, 'month');
     getGiorni(dataAttuale);
@@ -41,5 +41,11 @@ function getGiorni(target){
     }
 }
 
+function getFeste() {
+    $.ajax({
+        url: 'https://flynn.boolean.careers/exercises/api/holidays',
+        method: 'GET',
+    });
+}
 
 });

@@ -54,14 +54,17 @@
 
  .calendar-main{
     width: 20%;
-    margin: 0 auto; 
-    padding: 30px 30px;
+    max-height: 80vh;
+    margin: 10px auto; 
+    padding: 0 30px;
+    overflow: auto;
     display: flex;
     justify-content: flex-start;
 }
 
 #calendar li{
     text-transform: capitalize;
-    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-bottom: 10px;
     font-size: 1.5em;
 }
