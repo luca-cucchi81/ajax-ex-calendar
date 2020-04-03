@@ -43,8 +43,11 @@
     margin-right: 20px;
 }
 
-
  .prec i,
  .succ p{
      margin-right: 20px;
+ }
+
+ #nome-mese{
+     text-transform: capitalize;
  }
