@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style-type: none;
   }
 
   .clearfix::after {
@@ -52,30 +53,57 @@
      text-transform: uppercase;
  }
 
+ .week-days {
+     width: 80%;
+     height: 50px;
+     margin: 0 auto;
+     display: flex;
+     margin-top: 30px;
+ }
+
+ .square {
+     width: calc(100% / 7);
+     border: 1px solid black;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
  .calendar-main{
-    width: 30%;
-    max-height: 800px;
+    width: 80%;
     margin: 10px auto; 
-    padding: 0 30px;
-    overflow: auto;
     display: flex;
     justify-content: flex-start;
+    border: 1px solid black;
 }
-
+#calendar{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.feste-container{
+    width: calc(100% / 7);
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
 #calendar li{
     text-transform: capitalize;
     padding-left: 10px;
     padding-bottom: 10px;
-    font-size: 1.5em;
+    font-size: 2em;
 }
 
 .festa{
-    display: flex;
-    align-items: center;
+    width: 80%;
+    text-align: center;
     background-color: red;
     border-radius: 5px;;
 }
 .festivo{
-    padding: 5px 10px;
+    
     color: #fff;
 }

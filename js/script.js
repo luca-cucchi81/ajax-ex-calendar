@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
 var dataAttuale = moment('2018-01-01');
 getGiorni(dataAttuale);
 getFeste(dataAttuale);
@@ -20,6 +21,7 @@ $('.prec').click(function(){
 // al click su successivo --> passa a mese successivo
 $('.succ').click(function(){
     dataAttuale.add(1, 'month');
+    
     getGiorni(dataAttuale);
     getFeste(dataAttuale);
     if (dataAttuale.format('YYYY') == 2019){  /* check validazione anno successivo al 2018 */
@@ -29,23 +31,26 @@ $('.succ').click(function(){
     }
 });
 
-
+  
 // FUNZIONI
 
 /* funzione estrapola giorni mese */
 function getGiorni(target){
     $('#calendar').empty();
+    var giornoMeseIniziale = dataAttuale.isoWeekday();
+    stampaFittizzi(giornoMeseIniziale);
     var meseTarget = target.clone();  //clono il mese attuale
     var giorniTarget = meseTarget.daysInMonth(); //dal mese attuale estrapolo il numero di giorni 
     var nomeMese = target.format('MMMM'); //cambio nome mese dopo click
     $('#nome-mese').text(nomeMese); // combio nome mese dopo click
+    
     for (i= 1; i <= giorniTarget; i++) {
-
+      
         var htmlGiorno = $('#calendar-template').html();
         var templateGiorno = Handlebars.compile(htmlGiorno);
 
         var giornoInserito = {
-            day: i + '  ' + nomeMese,
+            day: i,
             dataDay: meseTarget.format('YYYY-MM-DD')
         };
 
@@ -70,7 +75,7 @@ function getFeste(festa) {
                 var giornoFestivo = giorniFestivi[i];
                 var nomeFestivo = giornoFestivo.name;
                 var dataFestivo = giornoFestivo.date;
-                $('#calendar li[data-day="' + dataFestivo + '"]').addClass('festivo').append(' - ' + nomeFestivo); 
+                $('#calendar li[data-day="' + dataFestivo + '"]').addClass('festivo').append(nomeFestivo); 
                 $('.feste-container li[data-day="' + dataFestivo + '"]').addClass('festa');  /* some extra CSS */
             }
         },
@@ -78,4 +83,10 @@ function getFeste(festa) {
     });
 }
 
+function stampaFittizzi(check) {
+    for (i= 0; i < check - 1 ; i++) {
+        var contenitore = '<div class="feste-container"></div>';
+        $('#calendar').append(contenitore);
+    }
+}
 });
