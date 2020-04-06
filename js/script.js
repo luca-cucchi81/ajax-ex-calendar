@@ -1,5 +1,27 @@
 $(document).ready(function(){
 
+   
+var weekDays = [
+        'Lunedì',
+        'Martedì',
+        'Mercoledì',
+        'Giovedì',
+        'Venerdì',
+        'Sabato',
+        'Domenica'
+    ]
+
+    for (var i = 0; i < 7; i++) {
+        var source = $('#square-template').html();
+        var template = Handlebars.compile(source);
+
+        var context = {
+            weekDay: weekDays[i],
+        };
+        var num = template(context);
+        $('.week-days').append(num);
+    }
+
 
 var dataAttuale = moment('2018-01-01');
 getGiorni(dataAttuale);
