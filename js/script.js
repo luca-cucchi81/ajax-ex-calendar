@@ -24,32 +24,34 @@ var weekDays = [
 
 
 var dataAttuale = moment('2018-01-01');
+var stopIniziale = moment('2018-01-01');
+var stopFinale = moment('2018-12-01');
+$('.prec').prop('disabled', true);
+$('.succ').prop('disabled', false);
 getGiorni(dataAttuale);
 getFeste(dataAttuale);
 
+
 // al click su precedente --> passa a mese precedente
 $('.prec').click(function(){
+    $('.succ').prop('disabled', false);
     dataAttuale.subtract(1, 'month');
     getGiorni(dataAttuale);
     getFeste(dataAttuale);
-    if (dataAttuale.format('YYYY') == 2017){    /* check validazione anno precedente al 2018 */
-        $('html').empty(); /* svuoto la pagina */
-        alert('ATTENZIONE NON SEI PIU\' NEL 2018'); /* avvio l'allert */
-        location.reload(); /* ricarico la pagina iniziale (Gennaio 2018) */
+    if (dataAttuale.isSameOrBefore(stopIniziale)) {
+        $('.prec').prop('disabled', true);
     }
 });
 
 
 // al click su successivo --> passa a mese successivo
 $('.succ').click(function(){
+    $('.prec').prop('disabled', false);
     dataAttuale.add(1, 'month');
-    
     getGiorni(dataAttuale);
     getFeste(dataAttuale);
-    if (dataAttuale.format('YYYY') == 2019){  /* check validazione anno successivo al 2018 */
-        $('html').empty(); /* svuoto la pagina */
-        alert('ATTENZIONE NON SEI PIU\' NEL 2018'); /* avvio l'allert */
-        location.reload(); /* ricarico la pagina iniziale (Gennaio 2018) */
+    if (dataAttuale.isSameOrAfter(stopFinale)) {
+        $('.succ').prop('disabled', true);
     }
 });
 
