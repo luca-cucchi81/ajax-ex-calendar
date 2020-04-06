@@ -18,11 +18,11 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding-top: 30px;;
+      padding-top: 30px;
   }
 
   .mese{
-      padding-bottom: 30px;;
+      padding-bottom: 30px;
   }
 
   .selezione-mese{
@@ -69,10 +69,10 @@ button:hover{
 
  .square {
      width: calc(100% / 7);
-     border: 1px solid black;
      display: flex;
      justify-content: center;
      align-items: center;
+      
  }
 
  .calendar-main{
@@ -80,7 +80,7 @@ button:hover{
     margin: 10px auto; 
     display: flex;
     justify-content: flex-start;
-    border: 1px solid black;
+    
 }
 #calendar{
     width: 100%;
@@ -94,7 +94,9 @@ button:hover{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px lightgrey;
 }
 #calendar li{
     text-transform: capitalize;

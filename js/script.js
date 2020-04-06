@@ -26,6 +26,7 @@ var weekDays = [
 var dataAttuale = moment('2018-01-01');
 var stopIniziale = moment('2018-01-01');
 var stopFinale = moment('2018-12-01');
+
 $('.prec').prop('disabled', true);
 $('.succ').prop('disabled', false);
 getGiorni(dataAttuale);
@@ -61,8 +62,10 @@ $('.succ').click(function(){
 /* funzione estrapola giorni mese */
 function getGiorni(target){
     $('#calendar').empty();
-    var giornoMeseIniziale = dataAttuale.isoWeekday();
+
+    var giornoMeseIniziale = dataAttuale.isoWeekday(); /* check per posizione primo giorno di ogni mese */
     stampaFittizzi(giornoMeseIniziale);
+
     var meseTarget = target.clone();  //clono il mese attuale
     var giorniTarget = meseTarget.daysInMonth(); //dal mese attuale estrapolo il numero di giorni 
     var nomeMese = target.format('MMMM'); //cambio nome mese dopo click
@@ -107,6 +110,7 @@ function getFeste(festa) {
     });
 }
 
+/* funzione per stampare giorni vuoti ogni mese */
 function stampaFittizzi(check) {
     for (i= 0; i < check - 1 ; i++) {
         var contenitore = '<div class="feste-container"></div>';
