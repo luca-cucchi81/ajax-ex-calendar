@@ -35,9 +35,11 @@
       justify-content: space-around;
       align-items: baseline;
       padding: 10px 15px;
+      border: none;
       border-radius: 5px;
       background-color: coral;
       font-size: larger;
+      outline: none;
   }
 
   button:first-child{
@@ -98,7 +100,7 @@ button:hover{
     text-transform: capitalize;
     padding-left: 10px;
     padding-bottom: 10px;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .festa{
